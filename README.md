@@ -25,6 +25,8 @@ The opening analysis found that:
 
 Public results are recorded in [experiments/experiment_log.csv](experiments/experiment_log.csv). Scores are copied from the official Kaggle submissions table after evaluation.
 
+Current best public ROC AUC: **0.97062** (`c01`).
+
 ## Reproducibility and credits
 
-The ensemble work builds on publicly released S6E8 out-of-fold predictions and notebooks, especially the [54-model OOF library](https://www.kaggle.com/datasets/szymonkapiski/s6e8-oof-library-47-models), [Naji's aligned predictions](https://www.kaggle.com/datasets/najiama/predicting-smartphone-addiction-oof-submission-csv), and the public missingness-aware blend analyses by [Riponce](https://www.kaggle.com/code/riponce/1-public-lb-0-97068-honest-55-model-stack) and [Rayk Kretzschmar](https://www.kaggle.com/code/raykkretzschmar/s6e8-missingness-aware-55-model-blend). Each published experiment records its source predictions and transformation.
+The ensemble work builds on publicly released S6E8 out-of-fold predictions and notebooks, especially the [public OOF library](https://www.kaggle.com/datasets/szymonkapiski/s6e8-oof-library-47-models), [Naji's aligned predictions](https://www.kaggle.com/datasets/najiama/predicting-smartphone-addiction-oof-submission-csv), and the public missingness-aware blend analyses by [Riponce](https://www.kaggle.com/code/riponce/1-public-lb-0-97068-honest-55-model-stack) and [Rayk Kretzschmar](https://www.kaggle.com/code/raykkretzschmar/s6e8-missingness-aware-55-model-blend). Each published experiment records its source predictions and transformation.
