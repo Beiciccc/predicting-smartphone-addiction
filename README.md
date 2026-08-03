@@ -14,6 +14,8 @@ Competition files are not redistributed here. See [data/README.md](data/README.m
 
 Experiments use stratified out-of-fold ROC AUC. Candidate submissions must preserve the official test IDs, contain one finite probability per row, and stay within `[0, 1]`.
 
+Residual candidates now use two validation gates: they must first improve the fixed structural anchor, then beat the strongest comparable accepted candidate on the same partitions in both overall OOF AUC and fold-level head-to-head stability. A candidate that clears only the anchor gate is retained as a diagnostic result rather than described as an improvement.
+
 The opening analysis found that:
 
 - daily and weekend screen time and social-media use carry most of the standalone signal;
@@ -31,7 +33,7 @@ The independent-seed residual improved all five fixed OOF folds but scored `0.97
 
 The fixed-partition lattice-plus-RealMLP meta residual also improved all five OOF folds, reaching `0.969561426` versus the `0.969512388` C04 anchor. Its public score was `0.97069`, matching the anchor but not separating at the displayed leaderboard precision. A later source audit found that the lattice component selected its stopping round on each outer validation fold, so the result is retained as a diagnostic and subsequent strict candidates exclude that component.
 
-The strict native-float64 RealMLP-plus-TabNet meta residual excludes the lattice component and uses fixed-epoch neural predictions on the same five partitions. It improved all five OOF folds, reaching `0.969552734`, but scored `0.97068` publicly—one displayed leaderboard step below the `0.97069` project best.
+The strict native-float64 RealMLP-plus-TabNet meta residual excludes the lattice component and uses fixed-epoch neural predictions on the same five partitions. It improved all five folds against C04 and reached `0.969552734`, but trailed C09 by `0.000008692` overall and on all five matched folds. Its public score of `0.97068` was one displayed leaderboard step below the `0.97069` project best, consistent with that head-to-head ordering. This result motivated the second validation gate above.
 
 Current best public ROC AUC: **0.97069** (`c04` and `c09`).
 
