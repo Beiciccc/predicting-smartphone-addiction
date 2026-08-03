@@ -25,7 +25,7 @@ The opening analysis found that:
 
 Public results are recorded in [experiments/experiment_log.csv](experiments/experiment_log.csv). Scores are copied from the official Kaggle submissions table after evaluation.
 
-Current best public ROC AUC: **0.97068** (`c03`).
+Current best public ROC AUC: **0.97069** (`c04`).
 
 ## Reproducibility and credits
 
