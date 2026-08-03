@@ -25,7 +25,9 @@ The opening analysis found that:
 
 Public results are recorded in [experiments/experiment_log.csv](experiments/experiment_log.csv). Scores are copied from the official Kaggle submissions table after evaluation.
 
-The competition-specific GPU model is published as [Fold-Safe Lattice Target Encoding](https://www.kaggle.com/code/beicicc/s6e8-fold-safe-lattice-target-encoding), while exact scored candidates are published through [Frontier Blend Experiments](https://www.kaggle.com/code/beicicc/s6e8-frontier-blend-experiments).
+The competition-specific GPU model is published as [Fold-Safe Lattice Target Encoding](https://www.kaggle.com/code/beicicc/s6e8-fold-safe-lattice-target-encoding). Exact scored candidates are documented in [Frontier Blend Experiments](https://www.kaggle.com/code/beicicc/s6e8-frontier-blend-experiments) and the [Seed Diversity Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-seed-diversity-residual-audit).
+
+The independent-seed residual improved all five fixed OOF folds but scored `0.97067`, slightly below the `0.97069` anchor. This suggests that diversity created by changing the outer partition did not transfer fully to the fold-averaged test prediction, so later residual tests keep the anchor's fixed partition.
 
 Current best public ROC AUC: **0.97069** (`c04`).
 
