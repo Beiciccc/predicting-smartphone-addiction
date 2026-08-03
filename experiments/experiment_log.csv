@@ -1,3 +1,4 @@
 experiment_id,submitted_at_utc,model_summary,change_from_previous,validation_scheme,validation_score,kaggle_code_url,kaggle_code_version,submission_status,public_score,notes
 c01,2026-08-03T05:43:20.547Z,Naji 10-blend aligned baseline,First scored baseline,Five-fold aligned OOF,0.969472891,https://www.kaggle.com/code/beicicc/s6e8-frontier-blend-experiments,1,COMPLETE,0.97062,Official submission 55203514
 c02,2026-08-03T05:50:36.093Z,Szymon 54-model honest logistic stack,Independent public stack baseline,Five-fold aligned OOF,0.969430000,https://www.kaggle.com/code/beicicc/s6e8-frontier-blend-experiments,2,COMPLETE,0.97061,Official submission 55203667
+c03,2026-08-03T05:54:36.013Z,Missingness-regime 55-model logistic stack,Adds conditional reliability interactions,Five-fold aligned OOF,0.969496552,https://www.kaggle.com/code/beicicc/s6e8-frontier-blend-experiments,3,COMPLETE,0.97068,Official submission 55203770
