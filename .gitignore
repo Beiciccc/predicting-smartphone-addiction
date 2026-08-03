@@ -1,0 +1,37 @@
+.DS_Store
+._*
+
+# Credentials and private configuration
+.env
+.env.*
+**/kaggle.json
+
+# Competition data and downloaded archives
+*.zip
+/train.csv
+/test.csv
+/sample_submission.csv
+/data/raw/
+/data/interim/
+/data/processed/
+
+# Generated experiment artifacts
+/artifacts/
+/outputs/
+/models/
+/checkpoints/
+/logs/
+/kaggle_runs/
+/private/
+/scratch/
+submission*.csv
+*_oof_predictions.csv
+oof*.npy
+test_*.npy
+
+# Python and notebook caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
