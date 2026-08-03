@@ -29,7 +29,7 @@ The competition-specific GPU model is published as [Fold-Safe Lattice Target Enc
 
 The independent-seed residual improved all five fixed OOF folds but scored `0.97067`, slightly below the `0.97069` anchor. This suggests that diversity created by changing the outer partition did not transfer fully to the fold-averaged test prediction, so later residual tests keep the anchor's fixed partition.
 
-The fixed-partition lattice-plus-RealMLP meta residual also improved all five OOF folds, reaching `0.969561426` versus the `0.969512388` C04 anchor. Its public score was `0.97069`, matching the anchor but not separating at the displayed leaderboard precision.
+The fixed-partition lattice-plus-RealMLP meta residual also improved all five OOF folds, reaching `0.969561426` versus the `0.969512388` C04 anchor. Its public score was `0.97069`, matching the anchor but not separating at the displayed leaderboard precision. A later source audit found that the lattice component selected its stopping round on each outer validation fold, so the result is retained as a diagnostic and subsequent strict candidates exclude that component.
 
 Current best public ROC AUC: **0.97069** (`c04` and `c09`).
 
