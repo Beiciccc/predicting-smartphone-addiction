@@ -45,9 +45,11 @@ Replacing the C11 side with C12's factorization-machine views produced a more st
 
 The first predeclared strict C09 residual point replaced 2.5% of C12 in C17. C18 improved all five aligned folds to `0.969706359` OOF and again scored `0.97084`; larger points in that residual sequence were not inspected after the first point passed.
 
+A CC0 ordered-CatBoost artifact was then used as a small negative corrector. C19 reranked C18 after subtracting 1% of Golem Strategy D, reached `0.969708634` OOF, and improved the public score to `0.97085`. Because several corrector weights had already been inspected before the 1% artifact was frozen, this result is explicitly recorded as a source-informed post-hoc diagnostic; the source arrays also omit IDs, so their documented original row order was audited through exact lengths and the reproduced solo OOF AUC.
+
 The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068`. Because C11-C13 had become stronger accepted aligned results while this experiment was running, the C09-based pass was stale at upload time. C14 is retained as a reproducible negative result and motivated the live incumbent refresh rule above.
 
-Current best public ROC AUC: **0.97084** (`c11`, `c12`, and `c13`).
+Current best public ROC AUC: **0.97085** (`c19`).
 
 ## Reproducibility and credits
 
