@@ -35,9 +35,9 @@ The fixed-partition lattice-plus-RealMLP meta residual also improved all five OO
 
 The strict native-float64 RealMLP-plus-TabNet meta residual excludes the lattice component and uses fixed-epoch neural predictions on the same five partitions. It improved all five folds against C04 and reached `0.969552734`, but trailed C09 by `0.000008692` overall and on all five matched folds. Its public score of `0.97068` was one displayed leaderboard step below the `0.97069` project best, consistent with that head-to-head ordering. This result motivated the second validation gate above.
 
-The August 4 public 74-member missingness-regime stack reached `0.969687` at the meta OOF level and improved the project public score to `0.97084`. A source audit found that its new lookup member selected checkpoints using each outer validation fold, so C11 is recorded as a public-provenance diagnostic rather than a strict fixed-epoch result. The exact scored bytes and the audit distinction are preserved in the public notebook.
+The August 4 public 74-member missingness-regime stack reached `0.969687` at the meta OOF level and improved the project public score to `0.97084`. Adding three factorization-machine views through a fixed one-third rank mixture improved all five aligned OOF folds to `0.969697`, but C12 tied C11 at the displayed public precision. A source audit found that the new lookup and factorization-machine members selected checkpoints using each outer validation fold, so both results are recorded as public-provenance diagnostics rather than strict fixed-epoch results. The exact scored bytes and the audit distinction are preserved in the public notebook.
 
-Current best public ROC AUC: **0.97084** (`c11`).
+Current best public ROC AUC: **0.97084** (`c11` and `c12`).
 
 ## Reproducibility and credits
 
