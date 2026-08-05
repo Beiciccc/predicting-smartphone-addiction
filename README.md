@@ -49,6 +49,8 @@ A CC0 ordered-CatBoost artifact was then used as a small negative corrector. C19
 
 One additional locked point increased the strict C09 allocation from 2.5% to 5% while preserving the frozen Golem correction. C20 improved all five aligned folds over C19 to `0.969710125` OOF and tied the project-best public score of `0.97085`.
 
+An independent fixed-schedule Lookup Transformer audit then completed with 24 epochs per fold, final EMA checkpoints, and no outer-fold checkpoint selection or early stopping. The standalone model reached `0.966051350` OOF. A locked 1% rank residual on C20 reached `0.969713851` and improved all five aligned folds, but it was not submitted after the exact ten-row campaign had completed; it is retained as a next-cycle candidate. The architecture and epoch count are source-informed, and the target-free preprocessing uses combined train and test covariates.
+
 The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068`. Because C11-C13 had become stronger accepted aligned results while this experiment was running, the C09-based pass was stale at upload time. C14 is retained as a reproducible negative result and motivated the live incumbent refresh rule above.
 
 Current best public ROC AUC: **0.97085** (`c19` and `c20`).
