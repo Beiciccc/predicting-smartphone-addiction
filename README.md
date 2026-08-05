@@ -43,6 +43,8 @@ The next locked 65% Naji14 weight improved C15 on all five aligned OOF folds to 
 
 Replacing the C11 side with C12's factorization-machine views produced a more stable orthogonal blend. C17 used 65% C12 and 35% Naji14, reached `0.969704758` OOF with four of five fold gains versus C16, and restored the public score to `0.97084`.
 
+The first predeclared strict C09 residual point replaced 2.5% of C12 in C17. C18 improved all five aligned folds to `0.969706359` OOF and again scored `0.97084`; larger points in that residual sequence were not inspected after the first point passed.
+
 The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068`. Because C11-C13 had become stronger accepted aligned results while this experiment was running, the C09-based pass was stale at upload time. C14 is retained as a reproducible negative result and motivated the live incumbent refresh rule above.
 
 Current best public ROC AUC: **0.97084** (`c11`, `c12`, and `c13`).
