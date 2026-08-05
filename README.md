@@ -14,7 +14,7 @@ Competition files are not redistributed here. See [data/README.md](data/README.m
 
 Experiments use stratified out-of-fold ROC AUC. Candidate submissions must preserve the official test IDs, contain one finite probability per row, and stay within `[0, 1]`.
 
-Residual candidates now use two validation gates: they must first improve the fixed structural anchor, then beat the strongest comparable accepted candidate on the same partitions in both overall OOF AUC and fold-level head-to-head stability. A candidate that clears only the anchor gate is retained as a diagnostic result rather than described as an improvement.
+Residual candidates now use two validation gates: they must first improve the fixed structural anchor, then beat the strongest comparable accepted candidate on the same partitions in both overall OOF AUC and fold-level head-to-head stability. The incumbent is refreshed from the official submissions list immediately before upload; a stronger newly accepted aligned OOF result invalidates an earlier pass, and candidates are re-certified serially. A candidate that clears only the anchor gate is retained as a diagnostic result rather than described as an improvement.
 
 The opening analysis found that:
 
@@ -27,7 +27,7 @@ The opening analysis found that:
 
 Public results are recorded in [experiments/experiment_log.csv](experiments/experiment_log.csv). Scores are copied from the official Kaggle submissions table after evaluation.
 
-The competition-specific GPU model is published as [Fold-Safe Lattice Target Encoding](https://www.kaggle.com/code/beicicc/s6e8-fold-safe-lattice-target-encoding). Exact scored candidates are documented in [Frontier Blend Experiments](https://www.kaggle.com/code/beicicc/s6e8-frontier-blend-experiments), the [Seed Diversity Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-seed-diversity-residual-audit), the [Strict RealMLP Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-strict-realmlp-residual-audit), the [Strict Neural Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-strict-neural-residual-audit), and the [August 5 Frontier Provenance Audit](https://www.kaggle.com/code/beicicc/s6e8-aug-5-frontier-provenance-audit).
+The competition-specific GPU model is published as [Fold-Safe Lattice Target Encoding](https://www.kaggle.com/code/beicicc/s6e8-fold-safe-lattice-target-encoding). Exact scored candidates are documented in [Frontier Blend Experiments](https://www.kaggle.com/code/beicicc/s6e8-frontier-blend-experiments), the [Seed Diversity Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-seed-diversity-residual-audit), the [Strict RealMLP Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-strict-realmlp-residual-audit), the [Strict Neural Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-strict-neural-residual-audit), the [August 5 Frontier Provenance Audit](https://www.kaggle.com/code/beicicc/s6e8-aug-5-frontier-provenance-audit), and the [Strict Seed-Average Meta Audit](https://www.kaggle.com/code/beicicc/s6e8-realmlp-seed01-strict-meta-20260805).
 
 The independent-seed residual improved all five fixed OOF folds but scored `0.97067`, slightly below the `0.97069` anchor. This suggests that diversity created by changing the outer partition did not transfer fully to the fold-averaged test prediction, so later residual tests keep the anchor's fixed partition.
 
@@ -36,6 +36,8 @@ The fixed-partition lattice-plus-RealMLP meta residual also improved all five OO
 The strict native-float64 RealMLP-plus-TabNet meta residual excludes the lattice component and uses fixed-epoch neural predictions on the same five partitions. It improved all five folds against C04 and reached `0.969552734`, but trailed C09 by `0.000008692` overall and on all five matched folds. Its public score of `0.97068` was one displayed leaderboard step below the `0.97069` project best, consistent with that head-to-head ordering. This result motivated the second validation gate above.
 
 The August 4 public 74-member missingness-regime stack reached `0.969687` at the meta OOF level and improved the project public score to `0.97084`. Adding three factorization-machine views through a fixed one-third rank mixture improved all five aligned OOF folds to `0.969697`, but C12 tied C11 at the displayed public precision. A separate 25% rank residual from Naji's public version-14 artifact also improved all five aligned folds, reaching `0.969694841`, and C13 again scored `0.97084`. Source audits found outer-validation checkpoint selection in the lookup and factorization-machine members and incomplete model-selection provenance for Naji14, so these results remain public-provenance diagnostics rather than strict fixed-epoch evidence. The formulas, scored hashes, source links, and audit distinctions are preserved in the public notebook.
+
+The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068`. Because C11-C13 had become stronger accepted aligned results while this experiment was running, the C09-based pass was stale at upload time. C14 is retained as a reproducible negative result and motivated the live incumbent refresh rule above.
 
 Current best public ROC AUC: **0.97084** (`c11`, `c12`, and `c13`).
 
