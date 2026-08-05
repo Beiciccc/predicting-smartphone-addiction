@@ -39,6 +39,8 @@ The August 4 public 74-member missingness-regime stack reached `0.969687` at the
 
 A locked Naji14 residual sweep selected 50% as the smallest weight that improved C12 overall while winning four of five aligned folds. C15 reached `0.969700304` OOF and scored `0.97084`, confirming a small complementary OOF signal without improving the displayed public score. It remains a diagnostic result because the underlying Naji14 recipe and full-OOF selection provenance are not published.
 
+The next locked 65% Naji14 weight improved C15 on all five aligned OOF folds to `0.969702443`, but C16 scored `0.97083`. Because the remaining OOF gain was small and test transfer moved in the opposite direction, further escalation on this single-source residual axis was stopped in favor of orthogonal candidates.
+
 The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068`. Because C11-C13 had become stronger accepted aligned results while this experiment was running, the C09-based pass was stale at upload time. C14 is retained as a reproducible negative result and motivated the live incumbent refresh rule above.
 
 Current best public ROC AUC: **0.97084** (`c11`, `c12`, and `c13`).
