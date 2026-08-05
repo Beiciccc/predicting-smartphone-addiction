@@ -27,7 +27,7 @@ The opening analysis found that:
 
 Public results are recorded in [experiments/experiment_log.csv](experiments/experiment_log.csv). Scores are copied from the official Kaggle submissions table after evaluation.
 
-The competition-specific GPU model is published as [Fold-Safe Lattice Target Encoding](https://www.kaggle.com/code/beicicc/s6e8-fold-safe-lattice-target-encoding). Exact scored candidates are documented in [Frontier Blend Experiments](https://www.kaggle.com/code/beicicc/s6e8-frontier-blend-experiments), the [Seed Diversity Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-seed-diversity-residual-audit), the [Strict RealMLP Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-strict-realmlp-residual-audit), and the [Strict Neural Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-strict-neural-residual-audit).
+The competition-specific GPU model is published as [Fold-Safe Lattice Target Encoding](https://www.kaggle.com/code/beicicc/s6e8-fold-safe-lattice-target-encoding). Exact scored candidates are documented in [Frontier Blend Experiments](https://www.kaggle.com/code/beicicc/s6e8-frontier-blend-experiments), the [Seed Diversity Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-seed-diversity-residual-audit), the [Strict RealMLP Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-strict-realmlp-residual-audit), the [Strict Neural Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-strict-neural-residual-audit), and the [August 5 Frontier Provenance Audit](https://www.kaggle.com/code/beicicc/s6e8-aug-5-frontier-provenance-audit).
 
 The independent-seed residual improved all five fixed OOF folds but scored `0.97067`, slightly below the `0.97069` anchor. This suggests that diversity created by changing the outer partition did not transfer fully to the fold-averaged test prediction, so later residual tests keep the anchor's fixed partition.
 
@@ -35,7 +35,9 @@ The fixed-partition lattice-plus-RealMLP meta residual also improved all five OO
 
 The strict native-float64 RealMLP-plus-TabNet meta residual excludes the lattice component and uses fixed-epoch neural predictions on the same five partitions. It improved all five folds against C04 and reached `0.969552734`, but trailed C09 by `0.000008692` overall and on all five matched folds. Its public score of `0.97068` was one displayed leaderboard step below the `0.97069` project best, consistent with that head-to-head ordering. This result motivated the second validation gate above.
 
-Current best public ROC AUC: **0.97069** (`c04` and `c09`).
+The August 4 public 74-member missingness-regime stack reached `0.969687` at the meta OOF level and improved the project public score to `0.97084`. A source audit found that its new lookup member selected checkpoints using each outer validation fold, so C11 is recorded as a public-provenance diagnostic rather than a strict fixed-epoch result. The exact scored bytes and the audit distinction are preserved in the public notebook.
+
+Current best public ROC AUC: **0.97084** (`c11`).
 
 ## Reproducibility and credits
 
