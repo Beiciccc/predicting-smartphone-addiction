@@ -49,11 +49,11 @@ A CC0 ordered-CatBoost artifact was then used as a small negative corrector. C19
 
 One additional locked point increased the strict C09 allocation from 2.5% to 5% while preserving the frozen Golem correction. C20 improved all five aligned folds over C19 to `0.969710125` OOF and tied the project-best public score of `0.97085`.
 
-An independent fixed-schedule Lookup Transformer audit then completed with 24 epochs per fold, final EMA checkpoints, and no outer-fold checkpoint selection or early stopping. The standalone model reached `0.966051350` OOF. C21 combines 99% of globally ranked C19 with a 1% Lookup rank residual, reaches `0.969713851` aligned OOF, improves all five folds over C20, and scores `0.97085`. Increasing the total Lookup weight to 2.5% gives C22 an aligned OOF score of `0.969720033`, five fold wins over C21, and a new project-best public score of `0.97086`. The architecture and epoch count are source-informed, and the target-free preprocessing uses combined train and test covariates. Prediction arrays, fold assignments, metrics, and hashes are published in the [fixed-schedule Lookup artifacts](https://www.kaggle.com/datasets/beicicc/s6e8-fixed-schedule-lookup-transformer-artifacts).
+An independent fixed-schedule Lookup Transformer audit then completed with 24 epochs per fold, final EMA checkpoints, and no outer-fold checkpoint selection or early stopping. The standalone model reached `0.966051350` OOF. C21 combines 99% of globally ranked C19 with a 1% Lookup rank residual, reaches `0.969713851` aligned OOF, improves all five folds over C20, and scores `0.97085`. Increasing the total Lookup weight to 2.5% gives C22 an aligned OOF score of `0.969720033`, five fold wins over C21, and a public score of `0.97086`. C23 raises the total Lookup allocation to 5%, reaches `0.969725829` aligned OOF with another five fold wins, and improves the project-best public score to `0.97087`. The architecture and epoch count are source-informed, and the target-free preprocessing uses combined train and test covariates. Prediction arrays, fold assignments, metrics, and hashes are published in the [fixed-schedule Lookup artifacts](https://www.kaggle.com/datasets/beicicc/s6e8-fixed-schedule-lookup-transformer-artifacts).
 
 The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068` and trailed the stronger C11-C13 aligned results. C14 is retained as a reproducible negative result.
 
-Current best public ROC AUC: **0.97086** (`c22`).
+Current best public ROC AUC: **0.97087** (`c23`).
 
 ## Reproducibility and credits
 
