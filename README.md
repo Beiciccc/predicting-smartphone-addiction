@@ -14,7 +14,7 @@ Competition files are not redistributed here. See [data/README.md](data/README.m
 
 Experiments use stratified out-of-fold ROC AUC. Candidate submissions must preserve the official test IDs, contain one finite probability per row, and stay within `[0, 1]`.
 
-Residual candidates now use two validation gates: they must first improve the fixed structural anchor, then beat the strongest comparable accepted candidate on the same partitions in both overall OOF AUC and fold-level head-to-head stability. The incumbent is refreshed from the official submissions list immediately before upload; a stronger newly accepted aligned OOF result invalidates an earlier pass, and candidates are re-certified serially. A candidate that clears only the anchor gate is retained as a diagnostic result rather than described as an improvement.
+Residual candidates use two validation gates: they must first improve the fixed structural anchor, then beat the strongest comparable aligned OOF candidate on the same partitions in both overall ROC AUC and fold-level head-to-head stability. A candidate that clears only the anchor gate is retained as a diagnostic result rather than described as an improvement.
 
 The opening analysis found that:
 
@@ -27,7 +27,7 @@ The opening analysis found that:
 
 Public results are recorded in [experiments/experiment_log.csv](experiments/experiment_log.csv). Scores are copied from the official Kaggle submissions table after evaluation.
 
-The competition-specific GPU model is published as [Fold-Safe Lattice Target Encoding](https://www.kaggle.com/code/beicicc/s6e8-fold-safe-lattice-target-encoding). Exact scored candidates are documented in [Frontier Blend Experiments](https://www.kaggle.com/code/beicicc/s6e8-frontier-blend-experiments), the [Seed Diversity Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-seed-diversity-residual-audit), the [Strict RealMLP Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-strict-realmlp-residual-audit), the [Strict Neural Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-strict-neural-residual-audit), the [August 5 Frontier Provenance Audit](https://www.kaggle.com/code/beicicc/s6e8-aug-5-frontier-provenance-audit), and the [Strict Seed-Average Meta Audit](https://www.kaggle.com/code/beicicc/s6e8-realmlp-seed01-strict-meta-20260805).
+The competition-specific GPU model is published as [Fold-Safe Lattice Target Encoding](https://www.kaggle.com/code/beicicc/s6e8-fold-safe-lattice-target-encoding). Exact scored candidates are documented in [Frontier Blend Experiments](https://www.kaggle.com/code/beicicc/s6e8-frontier-blend-experiments), the [Seed Diversity Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-seed-diversity-residual-audit), the [Strict RealMLP Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-strict-realmlp-residual-audit), the [Strict Neural Residual Audit](https://www.kaggle.com/code/beicicc/s6e8-strict-neural-residual-audit), the [August 5 Frontier Provenance Audit](https://www.kaggle.com/code/beicicc/s6e8-aug-5-frontier-provenance-audit), the [August 6 Fixed-Schedule Lookup Audit](https://www.kaggle.com/code/beicicc/s6e8-aug-6-fixed-schedule-lookup-audit), and the [Strict Seed-Average Meta Audit](https://www.kaggle.com/code/beicicc/s6e8-realmlp-seed01-strict-meta-20260805).
 
 The independent-seed residual improved all five fixed OOF folds but scored `0.97067`, slightly below the `0.97069` anchor. This suggests that diversity created by changing the outer partition did not transfer fully to the fold-averaged test prediction, so later residual tests keep the anchor's fixed partition.
 
@@ -49,11 +49,11 @@ A CC0 ordered-CatBoost artifact was then used as a small negative corrector. C19
 
 One additional locked point increased the strict C09 allocation from 2.5% to 5% while preserving the frozen Golem correction. C20 improved all five aligned folds over C19 to `0.969710125` OOF and tied the project-best public score of `0.97085`.
 
-An independent fixed-schedule Lookup Transformer audit then completed with 24 epochs per fold, final EMA checkpoints, and no outer-fold checkpoint selection or early stopping. The standalone model reached `0.966051350` OOF. A locked 1% rank residual on C20 reached `0.969713851` and improved all five aligned folds, but it was not submitted after the exact ten-row campaign had completed; it is retained as a next-cycle candidate. The architecture and epoch count are source-informed, and the target-free preprocessing uses combined train and test covariates.
+An independent fixed-schedule Lookup Transformer audit then completed with 24 epochs per fold, final EMA checkpoints, and no outer-fold checkpoint selection or early stopping. The standalone model reached `0.966051350` OOF. C21 combines 99% of globally ranked C19 with a 1% Lookup rank residual, reaches `0.969713851` aligned OOF, improves all five folds over C20, and scores `0.97085`. The architecture and epoch count are source-informed, and the target-free preprocessing uses combined train and test covariates. Prediction arrays, fold assignments, metrics, and hashes are published in the [fixed-schedule Lookup artifacts](https://www.kaggle.com/datasets/beicicc/s6e8-fixed-schedule-lookup-transformer-artifacts).
 
-The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068`. Because C11-C13 had become stronger accepted aligned results while this experiment was running, the C09-based pass was stale at upload time. C14 is retained as a reproducible negative result and motivated the live incumbent refresh rule above.
+The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068` and trailed the stronger C11-C13 aligned results. C14 is retained as a reproducible negative result.
 
-Current best public ROC AUC: **0.97085** (`c19` and `c20`).
+Current best public ROC AUC: **0.97085** (`c19`, `c20`, and `c21`).
 
 ## Reproducibility and credits
 
