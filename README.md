@@ -53,9 +53,11 @@ An independent fixed-schedule Lookup Transformer audit then completed with 24 ep
 
 An independently trained exact-value CatBoost model uses the 12 official predictors plus nine round-trip float64 keys, exactly 4,000 GPU boosting iterations per fold, and no early stopping or outer-fold checkpoint selection. Its standalone OOF score is `0.967297977`. C24 adds a 1% ranked residual from this model to C23, reaches `0.969729536` aligned OOF with five fold wins, and scores `0.97087` in official submission `55324592`. Prediction arrays, fold assignments, metrics, and the fixed training contract are published in the [exact-value CatBoost artifacts](https://www.kaggle.com/datasets/beicicc/s6e8-fixed-schedule-exact-value-catboost-artifacts), while the scored reconstruction is recorded in version 6 of the public residual audit.
 
+A second fixed-schedule Lookup initialization changes only the model and training random seeds while preserving the five partitions, architecture, fixed 24-epoch schedule, and final-EMA checkpoint rule. The second member reaches `0.966057605` standalone OOF. C25 adds a 1% residual from the equal-rank average of the two Lookup initializations to C24, reaches `0.969732452` aligned OOF with five fold wins, and scores `0.97087` in official submission `55324880`. The [second-seed Lookup artifacts](https://www.kaggle.com/datasets/beicicc/s6e8-second-seed-fixed-schedule-lookup-artifacts) publish its prediction arrays, fold assignments, metrics, and fixed training contract; version 7 of the public residual audit reproduces the exact scored C25 file.
+
 The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068` and trailed the stronger C11-C13 aligned results. C14 is retained as a reproducible negative result.
 
-Current best public ROC AUC: **0.97087** (`c24`, tied with `c23` at displayed precision).
+Current best public ROC AUC: **0.97087** (`c25`, tied with `c23` and `c24` at displayed precision).
 
 ## Reproducibility and credits
 
