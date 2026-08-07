@@ -59,9 +59,11 @@ A controlled LightGBM feature ablation then trains raw-12 and enhanced-103 model
 
 Revisiting the independently trained exact-value CatBoost member on the new C26 anchor, a fresh locked incremental sequence selects its first point at 0.75%. C27 reaches `0.969737414` aligned OOF, improves all five folds as well as the even- and odd-ID slices, and scores `0.97088` in official submission `55325352`. Version 9 of the public residual audit reconstructs the exact scored file from the previously published CatBoost artifacts.
 
+A strict RealMLP member averages two initializations trained for exactly four epochs per outer fold, using inner-fold target encoding and no outer-validation checkpoint selection. Its standalone OOF score is `0.968258398`. C28 adds a 3.2% ranked residual to C27, reaches `0.969741014` aligned OOF with five fold wins, but scores `0.97087` in official submission `55325553`, one displayed step below the project best. This is retained as a reproducible negative transfer result. The [fixed-4 two-seed RealMLP artifacts](https://www.kaggle.com/datasets/beicicc/s6e8-fixed4-realmlp-two-seed-artifacts) publish predictions, folds, metrics, and the training contract; version 10 of the public residual audit reproduces the exact scored file.
+
 The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068` and trailed the stronger C11-C13 aligned results. C14 is retained as a reproducible negative result.
 
-Current best public ROC AUC: **0.97088** (`c27`, tied with `c26` at displayed precision).
+Current best public ROC AUC: **0.97088** (`c27`, tied with `c26` at displayed precision; `c28` scores `0.97087`).
 
 ## Reproducibility and credits
 
