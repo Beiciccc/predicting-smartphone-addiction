@@ -57,9 +57,11 @@ A second fixed-schedule Lookup initialization changes only the model and trainin
 
 A controlled LightGBM feature ablation then trains raw-12 and enhanced-103 models on the same folds, seed, and fixed 900-round schedule. The enhanced model adds `other_screen` plus rounding and decimal-identity features, improving standalone OOF from `0.963393817` to `0.965745977` with gains on all five folds. C26 adds coefficient `0.012` of their normalized-rank contrast to C25, reaches `0.969734839` aligned OOF with five fold wins, and improves the public score to `0.97088` in official submission `55325064`. The [identity and digit LightGBM artifacts](https://www.kaggle.com/datasets/beicicc/s6e8-fixed900-identity-digit-lightgbm-artifacts) publish both prediction pairs, fold assignments, metrics, and the training contract; version 8 of the public residual audit reproduces the exact scored file.
 
+Revisiting the independently trained exact-value CatBoost member on the new C26 anchor, a fresh locked incremental sequence selects its first point at 0.75%. C27 reaches `0.969737414` aligned OOF, improves all five folds as well as the even- and odd-ID slices, and scores `0.97088` in official submission `55325352`. Version 9 of the public residual audit reconstructs the exact scored file from the previously published CatBoost artifacts.
+
 The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068` and trailed the stronger C11-C13 aligned results. C14 is retained as a reproducible negative result.
 
-Current best public ROC AUC: **0.97088** (`c26`).
+Current best public ROC AUC: **0.97088** (`c27`, tied with `c26` at displayed precision).
 
 ## Reproducibility and credits
 
