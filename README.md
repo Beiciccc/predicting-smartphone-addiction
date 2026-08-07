@@ -55,9 +55,11 @@ An independently trained exact-value CatBoost model uses the 12 official predict
 
 A second fixed-schedule Lookup initialization changes only the model and training random seeds while preserving the five partitions, architecture, fixed 24-epoch schedule, and final-EMA checkpoint rule. The second member reaches `0.966057605` standalone OOF. C25 adds a 1% residual from the equal-rank average of the two Lookup initializations to C24, reaches `0.969732452` aligned OOF with five fold wins, and scores `0.97087` in official submission `55324880`. The [second-seed Lookup artifacts](https://www.kaggle.com/datasets/beicicc/s6e8-second-seed-fixed-schedule-lookup-artifacts) publish its prediction arrays, fold assignments, metrics, and fixed training contract; version 7 of the public residual audit reproduces the exact scored C25 file.
 
+A controlled LightGBM feature ablation then trains raw-12 and enhanced-103 models on the same folds, seed, and fixed 900-round schedule. The enhanced model adds `other_screen` plus rounding and decimal-identity features, improving standalone OOF from `0.963393817` to `0.965745977` with gains on all five folds. C26 adds coefficient `0.012` of their normalized-rank contrast to C25, reaches `0.969734839` aligned OOF with five fold wins, and improves the public score to `0.97088` in official submission `55325064`. The [identity and digit LightGBM artifacts](https://www.kaggle.com/datasets/beicicc/s6e8-fixed900-identity-digit-lightgbm-artifacts) publish both prediction pairs, fold assignments, metrics, and the training contract; version 8 of the public residual audit reproduces the exact scored file.
+
 The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068` and trailed the stronger C11-C13 aligned results. C14 is retained as a reproducible negative result.
 
-Current best public ROC AUC: **0.97087** (`c25`, tied with `c23` and `c24` at displayed precision).
+Current best public ROC AUC: **0.97088** (`c26`).
 
 ## Reproducibility and credits
 
