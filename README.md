@@ -63,9 +63,11 @@ A strict RealMLP member averages two initializations trained for exactly four ep
 
 On the C28 anchor, a new locked exact-value CatBoost sequence selects 1.5% as its first passing point. C29 reaches `0.969744353` aligned OOF and improves all five folds plus both ID slices, but again scores `0.97087` in official submission `55325823`. Version 11 of the public residual audit reproduces the exact file from the existing CatBoost artifacts, preserving the gap between aligned OOF ordering and the displayed public score.
 
+C30 applies a zero-sum Lookup seed reallocation to C29: coefficient `0.01` multiplies the normalized-rank difference between the independent second seed and the first seed before a final global rerank. It reaches `0.969747794` aligned OOF, improves all five folds plus both ID slices, and restores the public score to `0.97088` in official submission `55326042`. Version 12 of the public residual audit reproduces the exact scored file from the two published Lookup artifact sets.
+
 The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068` and trailed the stronger C11-C13 aligned results. C14 is retained as a reproducible negative result.
 
-Current best public ROC AUC: **0.97088** (`c27`, tied with `c26` at displayed precision; `c28` and `c29` score `0.97087`).
+Current best public ROC AUC: **0.97088** (`c30`, tied with `c26` and `c27` at displayed precision).
 
 ## Reproducibility and credits
 
