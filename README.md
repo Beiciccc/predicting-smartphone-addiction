@@ -69,9 +69,11 @@ C31 increases the total zero-sum Lookup seed-reallocation coefficient to `0.02`.
 
 C32 adds coefficient `0.018` of the normalized-rank difference between the fixed-900 enhanced-103 and raw-12 LightGBM predictions to C31. It reaches `0.969753407` aligned OOF, improves all five folds plus both ID slices, and scores `0.97088` in official submission `55337972`. Version 14 of the public residual audit reproduces the exact scored file.
 
+A matched fixed-1,500-round XGBoost ablation repeats the raw-12 versus enhanced-103 feature contrast with a different learner and no early stopping or checkpoint selection. The enhanced XGBoost member improves all five standalone folds over its raw counterpart. C33 adds coefficient `0.027` of their normalized-rank contrast to C32, reaches `0.969756036` aligned OOF, improves four of five folds within the stability tolerance plus both ID slices, and scores `0.97088` in official submission `55338109`. The [identity and digit XGBoost artifacts](https://www.kaggle.com/datasets/beicicc/s6e8-fixed1500-xgb-identity-digit-artifacts) publish both prediction pairs, fold assignments, metrics, and the training contract; version 15 of the public residual audit reproduces the exact scored file.
+
 The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068` and trailed the stronger C11-C13 aligned results. C14 is retained as a reproducible negative result.
 
-Current best public ROC AUC: **0.97088** (`c32`, tied with `c26`, `c27`, `c30`, and `c31` at displayed precision).
+Current best public ROC AUC: **0.97088** (`c33`, tied with `c26`, `c27`, `c30`, `c31`, and `c32` at displayed precision).
 
 ## Reproducibility and credits
 
