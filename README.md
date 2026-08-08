@@ -67,9 +67,11 @@ C30 applies a zero-sum Lookup seed reallocation to C29: coefficient `0.01` multi
 
 C31 increases the total zero-sum Lookup seed-reallocation coefficient to `0.02`. It reaches `0.969750445` aligned OOF, improves all five folds plus both ID slices over C30, and scores `0.97088` in official submission `55337746`. Version 13 of the public residual audit reproduces the exact scored file.
 
+C32 adds coefficient `0.018` of the normalized-rank difference between the fixed-900 enhanced-103 and raw-12 LightGBM predictions to C31. It reaches `0.969753407` aligned OOF, improves all five folds plus both ID slices, and scores `0.97088` in official submission `55337972`. Version 14 of the public residual audit reproduces the exact scored file.
+
 The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068` and trailed the stronger C11-C13 aligned results. C14 is retained as a reproducible negative result.
 
-Current best public ROC AUC: **0.97088** (`c31`, tied with `c26`, `c27`, and `c30` at displayed precision).
+Current best public ROC AUC: **0.97088** (`c32`, tied with `c26`, `c27`, `c30`, and `c31` at displayed precision).
 
 ## Reproducibility and credits
 
