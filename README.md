@@ -81,9 +81,11 @@ A new matched XGBoost ablation adds seven target-free screen differences and saf
 
 A matched fixed-4,000 CatBoost ablation adds the same seven screen-relation features to the exact-value baseline. The treatment improves standalone OOF from `0.967297977` to `0.967733565` with gains in all five folds. Its normalized-rank contrast is nearly uncorrelated with the preceding C37 direction, so C38 divides both by their unlabeled OOF standard deviations and averages them equally. The first locked step, `0.00065`, reaches `0.969767581` aligned OOF with five fold wins and improves the public score to `0.97090` in official submission `55340194`. The [screen-relation CatBoost artifacts](https://www.kaggle.com/datasets/beicicc/s6e8-fixed4000-catboost-screen-relation-artifacts) publish the matched prediction pairs, folds, metrics, and fixed training contract; version 20 of the public residual audit reproduces the exact scored file.
 
+A separate fixed-900 LightGBM ablation compares the raw 12 predictors with a structural treatment that adds `other_screen` and nine decimal-precision coordinates. The treatment improves standalone OOF from `0.962511090` to `0.963724080` in all five folds. Its normalized-rank contrast is projected off the C38 direction using unlabeled OOF vectors; the orthogonal residual and C38 direction are then standardized and averaged equally. The third locked step, `0.000875`, produces C39 at `0.969770304` aligned OOF with four fold wins within the stability tolerance and scores `0.97090` in official submission `55340851`. The [structural LightGBM artifacts](https://www.kaggle.com/datasets/beicicc/s6e8-fixed900-structural-lgbm-artifacts) publish the matched prediction pairs, folds, metrics, and fixed training contract; version 21 of the public residual audit reproduces the exact scored file.
+
 The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068` and trailed the stronger C11-C13 aligned results. C14 is retained as a reproducible negative result.
 
-Current best public ROC AUC: **0.97090** (`c38`).
+Current best public ROC AUC: **0.97090** (`c39`, tied with `c38` at displayed precision).
 
 ## Reproducibility and credits
 
