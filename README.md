@@ -77,9 +77,11 @@ After larger continuations of the LightGBM, XGBoost, CatBoost, and RealMLP direc
 
 A model-family contrast then compares the matched enhanced-103 XGBoost and LightGBM members. The fixed-1,500-round XGBoost member has higher standalone OOF in all five folds, so C36 adds coefficient `0.0395` of its normalized-rank difference from the fixed-900 LightGBM member. C36 reaches `0.969762968` aligned OOF, improves four of five folds within the stability tolerance plus both ID slices, and raises the public score to `0.97089` in official submission `55338876`. Version 18 of the public residual audit reproduces the exact scored file.
 
+A new matched XGBoost ablation adds seven target-free screen differences and safe ratios to the 103-feature baseline under the same five folds and fixed 1,500-round schedule. The treatment improves standalone OOF from `0.965848755` to `0.966028550` with gains in all five folds. Its contrast is weakly anticorrelated with the exact-value CatBoost residual, so the two directions are divided by their unlabeled OOF standard deviations and averaged equally. The first locked composite step, `0.00075`, produces C37 at `0.969765452` aligned OOF with five fold wins and scores `0.97089` in official submission `55339592`. The [screen-relation XGBoost artifacts](https://www.kaggle.com/datasets/beicicc/s6e8-fixed1500-xgb-screen-relation-artifacts) publish both prediction pairs, folds, metrics, and the training contract; version 19 of the public residual audit reproduces the exact scored file.
+
 The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068` and trailed the stronger C11-C13 aligned results. C14 is retained as a reproducible negative result.
 
-Current best public ROC AUC: **0.97089** (`c36`).
+Current best public ROC AUC: **0.97089** (`c37`, tied with `c36` at displayed precision).
 
 ## Reproducibility and credits
 
