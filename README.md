@@ -75,9 +75,11 @@ On the C33 anchor, a fresh exact-value CatBoost sequence selects its first point
 
 After larger continuations of the LightGBM, XGBoost, CatBoost, and RealMLP directions failed the original residual gate on C34, a prospective micro-gain gate was introduced for entirely new points. It lowers the overall-gain floor to `1e-6` while requiring strictly positive gains in all five folds, the worst fold, and both ID slices. The first fresh Lookup seed-reallocation point, `0.0075`, passes that stricter stability condition. C35 reaches `0.969760863` aligned OOF and scores `0.97088` in official submission `55338669`. Version 17 of the public residual audit reproduces the exact scored file.
 
+A model-family contrast then compares the matched enhanced-103 XGBoost and LightGBM members. The fixed-1,500-round XGBoost member has higher standalone OOF in all five folds, so C36 adds coefficient `0.0395` of its normalized-rank difference from the fixed-900 LightGBM member. C36 reaches `0.969762968` aligned OOF, improves four of five folds within the stability tolerance plus both ID slices, and raises the public score to `0.97089` in official submission `55338876`. Version 18 of the public residual audit reproduces the exact scored file.
+
 The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068` and trailed the stronger C11-C13 aligned results. C14 is retained as a reproducible negative result.
 
-Current best public ROC AUC: **0.97088** (`c35`, tied with `c26`, `c27`, `c30`, `c31`, `c32`, `c33`, and `c34` at displayed precision).
+Current best public ROC AUC: **0.97089** (`c36`).
 
 ## Reproducibility and credits
 
