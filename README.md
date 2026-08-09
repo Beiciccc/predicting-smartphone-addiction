@@ -87,9 +87,11 @@ Golem member E is an XGBoost model with inner-fold smoothed target encoding, whi
 
 A fresh incremental continuation of the same orthogonal Golem E-minus-D direction was then evaluated on C40. Increment `0.00425` improved aligned OOF but did not clear the predeclared overall-gain threshold; increment `0.01325` was the first passing point, reaching `0.969775109` aligned OOF with four of five fold gains within tolerance and positive gains on both ID-parity slices. C41 improves the public score to `0.97091` in official submission `55367841`. Version 23 of the public residual audit reproduces the exact scored file; the later locked increment remains uninspected.
 
+A fixed six-member logit-space logistic-regression stack then combines strict RealMLP, two-seed Lookup, CatBoost and XGBoost screen-relation, structural LightGBM, and Golem-E predictions. It reaches `0.969328689` standalone OOF versus `0.968638422` for the matched equal-rank reference, with gains in all five folds. After the original residual gate closed below its overall threshold, a separately predeclared frontier-plateau gate selects the first fresh coefficient, `0.03165`. C42 reaches `0.969776148` aligned OOF with four of five fold gains within tolerance and positive parity-slice gains, and scores `0.97091` in official submission `55369093`. The [six-member cross-fitted logit-LR artifacts](https://www.kaggle.com/datasets/beicicc/s6e8-sixmember-crossfit-logitlr-artifacts) publish the component predictions, reference predictions, canonical folds, and frozen orthogonal direction; version 24 of the public residual audit reproduces the exact scored file.
+
 The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068` and trailed the stronger C11-C13 aligned results. C14 is retained as a reproducible negative result.
 
-Current best public ROC AUC: **0.97091** (`c41`).
+Current best public ROC AUC: **0.97091** (`c41` and `c42` at displayed precision).
 
 ## Reproducibility and credits
 
