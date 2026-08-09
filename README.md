@@ -85,9 +85,11 @@ A separate fixed-900 LightGBM ablation compares the raw 12 predictors with a str
 
 Golem member E is an XGBoost model with inner-fold smoothed target encoding, while member D is an ordered CatBoost model with native categorical handling. The published arrays give standalone OOF scores of `0.964862935` and `0.962601275`; E leads in all five folds. C40 projects the E-minus-D normalized-rank contrast off the accepted C39 direction using unlabeled OOF vectors. The second locked coefficient, `0.01175`, reaches `0.969773058` aligned OOF with five fold wins and scores `0.97090` in official submission `55341398`. Version 22 of the public residual audit reproduces the exact scored file from the [Golem OOF library](https://www.kaggle.com/datasets/dariushafshar/s6e8-golem-oof-library). That source publishes prediction arrays and recipe metadata but not training code or fold IDs, so C40 is exactly reproducible at the array level rather than from model training code.
 
+A fresh incremental continuation of the same orthogonal Golem E-minus-D direction was then evaluated on C40. Increment `0.00425` improved aligned OOF but did not clear the predeclared overall-gain threshold; increment `0.01325` was the first passing point, reaching `0.969775109` aligned OOF with four of five fold gains within tolerance and positive gains on both ID-parity slices. C41 improves the public score to `0.97091` in official submission `55367841`. Version 23 of the public residual audit reproduces the exact scored file; the later locked increment remains uninspected.
+
 The two-seed fixed-epoch RealMLP average improved every individual model fold and produced a strict meta candidate at `0.969562914`. It beat C04, C10, and C09 on all five aligned folds, but scored `0.97068` and trailed the stronger C11-C13 aligned results. C14 is retained as a reproducible negative result.
 
-Current best public ROC AUC: **0.97090** (`c40`, tied with `c38` and `c39` at displayed precision).
+Current best public ROC AUC: **0.97091** (`c41`).
 
 ## Reproducibility and credits
 
